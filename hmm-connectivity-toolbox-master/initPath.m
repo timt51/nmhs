@@ -1,0 +1,9 @@
+function initPath()
+  addpath ./
+  addpath ./testing
+  addpath ./testing/goalFunctions
+  addpath ./testing/helpers
+  addpath ./testing/sampling
+  addpath ./testing/optimization
+  addpath ./testing/optimization/annealing
+  addpath ./baum-welch
