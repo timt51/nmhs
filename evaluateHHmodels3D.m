@@ -5,7 +5,7 @@ B_Cmeans = zeros(11, 1);
 C_Ameans = zeros(11, 1);
 C_Bmeans = zeros(11, 1);
 numGsyns = 11;
-numCases = 10;
+numCases = 1;
 tmax = 10000;
 binSize = 2;
 
@@ -19,10 +19,11 @@ for i = 1:numGsyns
     x = n1s((numGsyns-1)*(i-1)+1:(numGsyns-1)*i);
     y = n2s((numGsyns-1)*(i-1)+1:(numGsyns-1)*i);
     z = n3s((numGsyns-1)*(i-1)+1:(numGsyns-1)*i);
+    w = Ts((numGsyns-1)*(i-1)+1:(numGsyns-1)*i);
     parfor (j = 1:numCases, 10)
         disp((numGsyns-1)*(i-1)+j);
         [A_Bs(j), A_Cs(j), B_As(j), B_Cs(j), C_As(j), C_Bs(j)] = ...
-            nmhs3D(x{j}, y{j}, z{j}, Ts{j}, tmax, binSize);
+            nmhs3D(x{j}, y{j}, z{j}, w{j}, tmax, binSize);
     end
     A_Bmeans(i) = mean(A_Bs);
     A_Cmeans(i) = mean(A_Cs);
@@ -39,6 +40,7 @@ legend('C listens to A', 'C listens to B');
 xlabel('gsyn');
 ylabel('Connectivity');
 title('Neurons A & B Excite Neuron C');
+savefig('XORn3');
 
 figure(2);
 plot(linspace(0,1,11),A_Bmeans,linspace(0,1,11),A_Cmeans);
@@ -47,6 +49,7 @@ legend('A listens to B', 'A listens to C');
 xlabel('gsyn');
 ylabel('Connectivity');
 title('Neurons A & B Excite Neuron C');
+savefig('XORn1');
 
 figure(3);
 plot(linspace(0,1,11),B_Ameans,linspace(0,1,11),B_Cmeans);
@@ -55,3 +58,4 @@ legend('B listens to A', 'B listens to C');
 xlabel('gsyn');
 ylabel('Connectivity');
 title('Neurons A & B Excite Neuron C');
+savefig('XORn2');
