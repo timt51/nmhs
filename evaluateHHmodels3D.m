@@ -5,7 +5,7 @@ B_Cmeans = zeros(11, 1);
 C_Ameans = zeros(11, 1);
 C_Bmeans = zeros(11, 1);
 numGsyns = 11;
-numCases = 1;
+numCases = 10;
 tmax = 10000;
 binSize = 2;
 
