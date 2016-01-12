@@ -53,7 +53,7 @@ function [A_B, A_C, B_A, B_C, C_A, C_B] = nmhs3D(n1, n2, n3, T, tmax, binSize)
     disp([max(logLs1D_n1)+max(logLs1D_n2)+max(logLs1D_n3) logLs]);
     disp([A_B, A_C, B_A, B_C, C_A, C_B]);
     
-    if (max(logLs1D_n1)+max(logLs1D_n2)+max(logLs1D_n3) > 1.05*logLs)
+    if (max(logLs1D_n1)+max(logLs1D_n2)+max(logLs1D_n3) > 1.25*logLs)
         A_B = 0;
         A_C = 0;
         B_A = 0;
