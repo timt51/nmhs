@@ -5,9 +5,9 @@ B_Cmeans = zeros(11, 1);
 C_Ameans = zeros(11, 1);
 C_Bmeans = zeros(11, 1);
 numGsyns = 11;
-numCases = 10;
-tmax = 1000;
-binSize = 10;
+numCases = 1;
+tmax = 10000;
+binSize = 2;
 
 for i = 1:numGsyns
     A_Bs = zeros(numCases,1);
@@ -17,9 +17,9 @@ for i = 1:numGsyns
     C_As = zeros(numCases,1);
     C_Bs = zeros(numCases,1);
     for j = 1:numCases
-        disp(numCases*(i-1)+j);
+        disp((numGsyns-1)*(i-1)+j);
         [A_Bs(j), A_Cs(j), B_As(j), B_Cs(j), C_As(j), C_Bs(j)] = ...
-            nmhs3D(n1s{numCases*(i-1)+j}, n2s{numCases*(i-1)+j}, n3s{numCases*(i-1)+j}, Ts{numCases*(i-1)+j}, tmax, binSize);
+            nmhs3D(n1s{(numGsyns-1)*(i-1)+j}, n2s{(numGsyns-1)*(i-1)+j}, n3s{(numGsyns-1)*(i-1)+j}, Ts{(numGsyns-1)*(i-1)+j}, tmax, binSize);
     end
     A_Bmeans(i) = mean(A_Bs);
     A_Cmeans(i) = mean(A_Cs);

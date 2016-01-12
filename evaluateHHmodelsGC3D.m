@@ -6,8 +6,8 @@ C_Ameans = zeros(11, 1);
 C_Bmeans = zeros(11, 1);
 numGsyns = 11;
 numCases = 10;
-tmax = 25000;
-samppersec = 1000;
+tmax = 10000;
+binSize = 2;
 
 for i = 1:numGsyns
     A_Bs = zeros(numCases,1);
@@ -21,18 +21,18 @@ for i = 1:numGsyns
         n2 = n2s{numCases*(i-1)+j};
         n3 = n3s{numCases*(i-1)+j};
         T = Ts{numCases*(i-1)+j};
-        n1Spikes = countSpikes(n1, T, tmax, 9); n1Spikes(n1Spikes > 3) = 3;
-        n2Spikes = countSpikes(n2, T, tmax, 9); n2Spikes(n2Spikes > 3) = 3;
-        n3Spikes = countSpikes(n3, T, tmax, 9); n3Spikes(n3Spikes > 3) = 3;
+        n1Spikes = countSpikes(n1, T, tmax, binSize); n1Spikes(n1Spikes > 3) = 3;
+        n2Spikes = countSpikes(n2, T, tmax, binSize); n2Spikes(n2Spikes > 3) = 3;
+        n3Spikes = countSpikes(n3, T, tmax, binSize); n3Spikes(n3Spikes > 3) = 3;
                
         X = [n1Spikes+1;n2Spikes+1;n3Spikes+1];
         GC1 = granger_causality(X,0);
         A_Bs(j) = GC1(1,2);
-        A_Cs(j) = GC1(3,1);
+        A_Cs(j) = GC1(1,3);
         B_As(j) = GC1(2,1);
         B_Cs(j) = GC1(2,3);
         C_As(j) = GC1(3,1);
-        C_Bs(j) = GC1(1,2);
+        C_Bs(j) = GC1(3,2);
     end
 
     A_Bmeans(i) = mean(A_Bs);

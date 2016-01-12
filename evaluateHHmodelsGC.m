@@ -10,8 +10,8 @@ for i = 1:numGsyns
         n1 = n1s{numCases*(i-1)+j};
         n3 = n3s{numCases*(i-1)+j};
         T = Ts{numCases*(i-1)+j};
-        n1Spikes = countSpikes(n1, T, 25000, 100); n1Spikes(n1Spikes > 3) = 3;
-        n3Spikes = countSpikes(n3, T, 25000, 100); n3Spikes(n3Spikes > 3) = 3;
+        n1Spikes = countSpikes(n1, T, 25000, 4); %n1Spikes(n1Spikes > 3) = 3;
+        n3Spikes = countSpikes(n3, T, 25000, 4); %n3Spikes(n3Spikes > 3) = 3;
                 
         X = [n1Spikes+1;n3Spikes+1];
         GC1 = granger_causality(X,0);
