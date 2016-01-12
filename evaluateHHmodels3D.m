@@ -1,3 +1,4 @@
+load('XOR.mat');
 A_Bmeans = zeros(11, 1);
 A_Cmeans = zeros(11, 1);
 B_Ameans = zeros(11, 1);
