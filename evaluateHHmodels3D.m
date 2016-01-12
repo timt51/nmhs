@@ -16,10 +16,13 @@ for i = 1:numGsyns
     B_Cs = zeros(numCases,1);
     C_As = zeros(numCases,1);
     C_Bs = zeros(numCases,1);
-    for j = 1:numCases
+    x = n1s((numGsyns-1)*(i-1)+1:(numGsyns-1)*i);
+    y = n2s((numGsyns-1)*(i-1)+1:(numGsyns-1)*i);
+    z = n3s((numGsyns-1)*(i-1)+1:(numGsyns-1)*i);
+    parfor (j = 1:numCases, 10)
         disp((numGsyns-1)*(i-1)+j);
         [A_Bs(j), A_Cs(j), B_As(j), B_Cs(j), C_As(j), C_Bs(j)] = ...
-            nmhs3D(n1s{(numGsyns-1)*(i-1)+j}, n2s{(numGsyns-1)*(i-1)+j}, n3s{(numGsyns-1)*(i-1)+j}, Ts{(numGsyns-1)*(i-1)+j}, tmax, binSize);
+            nmhs3D(x{j}, y{j}, z{j}, Ts{j}, tmax, binSize);
     end
     A_Bmeans(i) = mean(A_Bs);
     A_Cmeans(i) = mean(A_Cs);
