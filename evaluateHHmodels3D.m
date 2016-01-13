@@ -1,5 +1,5 @@
-load('XOR.mat');
-addpath(genpath('hmm-connectivity-toolbox-master'),'-end');
+load('/om/ttruong/nmhs/XOR.mat');
+addpath(genpath('/om/ttruong/nmhs/hmm-connectivity-toolbox-master'),'-end');
 
 A_Bmeans = zeros(11, 1);
 A_Cmeans = zeros(11, 1);
