@@ -1,4 +1,4 @@
-function [A_B, A_C, B_A, B_C, C_A, C_B] = nmhs3D(n1, n2, n3, T, tmax, binSize)
+function [A_B, A_C, B_A, B_C, C_A, C_B] = nmhs3D(n1, n2, n3, T, tmax, binSize, coef)
     %number of spikes/neuron
     n1Spikes = countSpikes(n1, T, tmax, binSize); n1Spikes(n1Spikes > 3) = 3;
     n2Spikes = countSpikes(n2, T, tmax, binSize); n2Spikes(n2Spikes > 3) = 3;
@@ -53,7 +53,7 @@ function [A_B, A_C, B_A, B_C, C_A, C_B] = nmhs3D(n1, n2, n3, T, tmax, binSize)
     disp([max(logLs1D_n1)+max(logLs1D_n2)+max(logLs1D_n3) logLs]);
     disp([A_B, A_C, B_A, B_C, C_A, C_B]);
     
-    if (max(logLs1D_n1)+max(logLs1D_n2)+max(logLs1D_n3) > 1.475*logLs)
+    if (max(logLs1D_n1)+max(logLs1D_n2)+max(logLs1D_n3) > coef*logLs)
         A_B = 0;
         A_C = 0;
         B_A = 0;

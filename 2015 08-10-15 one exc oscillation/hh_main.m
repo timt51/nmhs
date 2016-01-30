@@ -1,5 +1,5 @@
 % Leif Gibb 6/28/15 through 8/10/15
-function [n1, n2, n3, T] = hh_main(tmax, samppersec, n1gsyn, n2gsyn)
+function [n1, n2, n3, T] = hh_main(tmax, samppersec, n1gsyn, n2gsyn, n1n2prob)
     close all
     tic
     rng('shuffle')

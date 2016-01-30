@@ -1,6 +1,6 @@
 % Hodgkin-Huxley circuit model implemented by Leif Gibb 6/28/15 through 12/26/15
 
-function [n1, n2, n3, T] = hh_main(tmax, samppersec, n1gsyn, n2gsyn)
+function [n1, n2, n3, T] = hh_main(tmax, samppersec, n1gsyn, n2gsyn, n1n2prob)
 
     close all
     tic
@@ -13,7 +13,6 @@ function [n1, n2, n3, T] = hh_main(tmax, samppersec, n1gsyn, n2gsyn)
     %samppersec = 1000;
     spikedur = 5; % ms
     signalrefrac = 100; % ms
-    n1n2prob = 0.3;
     spikefreq = 3; % Hz
     %n1gsyn = 0.2; % mS/cm^2
 

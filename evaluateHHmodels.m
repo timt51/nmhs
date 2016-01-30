@@ -10,7 +10,7 @@ for i = 1:numGsyns
     A_Cs = zeros(numCases,1);
     for j = 1:numCases
         disp(numCases*(i-1)+j);
-        [C_A, A_C, logLs] = nmhs2D(n1s{numCases*(i-1)+j}, n2s{numCases*(i-1)+j}, n3s{numCases*(i-1)+j}, Ts{numCases*(i-1)+j}, 10000, 100);
+        [C_A, A_C, logLs] = nmhs2D(n1s{numCases*(i-1)+j}, n2s{numCases*(i-1)+j}, n3s{numCases*(i-1)+j}, Ts{numCases*(i-1)+j}, tmax, 100);
         C_As(j) = C_A;
         A_Cs(j) = A_C;
     end
