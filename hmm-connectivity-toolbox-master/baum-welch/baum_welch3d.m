@@ -6,6 +6,9 @@
 function [packed3DHMM, logLs] = ...
          baum_welch3d(packed_guess, seq1, seq2, seq3)
   [tr1_guess, tr2_guess, tr3_guess, em1_guess, em2_guess, em3_guess] = unpack3DHMM(packed_guess);
+  seq1 = reshape(seq1,[1,length(seq1)]);
+  seq2 = reshape(seq2,[1,length(seq2)]);
+  seq3 = reshape(seq3,[1,length(seq3)]);
   CONVERGENCE_LIMIT = 1000;
   EPSILON = 1e-5;
   tr1_trained = tr1_guess;

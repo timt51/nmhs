@@ -17,7 +17,7 @@ for i = 1:numGsyns
     y = n2s((numGsyns-1)*(i-1)+1:(numGsyns-1)*i);
     z = n3s((numGsyns-1)*(i-1)+1:(numGsyns-1)*i);
     w = Ts((numGsyns-1)*(i-1)+1:(numGsyns-1)*i);
-    parfor (j = 1:numCases, 10)
+    for j = 1:numCases
         disp((numGsyns-1)*(i-1)+j);
         [A_Bs(j), A_Cs(j), B_As(j), B_Cs(j), C_As(j), C_Bs(j)] = ...
             nmhs3D(x{j}, y{j}, z{j}, w{j}, tmax, binSize,coef);
