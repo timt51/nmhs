@@ -1,6 +1,6 @@
 % Parameters
 % Generate/Load HH models
-tmax = 1000;
+tmax = 10000;
 samppersec = 1000;
 binSize = 2;
 numCases = 10;
