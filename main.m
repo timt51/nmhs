@@ -2,10 +2,9 @@
 % Generate/Load HH models
 tmax = 10000;
 samppersec = 1000;
-binSize = 2;
 numCases = 10;
 n1n2prob = 0.3;
-binSize = 2;
+binSize = 100;
 coef = 1.475;
 % Model Type
 model = 'AND';

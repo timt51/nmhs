@@ -23,6 +23,7 @@ function [A_B, A_C, B_A, B_C, C_A, C_B] = nmhs3D(n1, n2, n3, T, tmax, binSize, c
         tr3_guess = archetypeLookup3D(tmatArchetypes{i}, 2);
 
         packed_hmm = pack3DHMM(tr1_guess, tr2_guess, tr3_guess, em1_guess, em2_guess, em3_guess);
+        disp(binSize);
         [packed_hmm, logLsNew] = baum_welch3d(packed_hmm, n1Spikes+1, n2Spikes+1, n3Spikes+1);
         [tr1, tr2, tr3, ~, ~, ~] = unpack3DHMM(packed_hmm);
         
