@@ -5,8 +5,11 @@ coef = 1.05;
 %     n3Spikes = countSpikes(n3, T, tmax, binSize); n3Spikes(n3Spikes > 3) = 3;
 n1Spikes = round(rand(1,700));
 n2Spikes = round(rand(1,700));
-n3Spikes = circshift(xor(n1Spikes,n2Spikes),[1,0]);
-    %n3Spikes = n3Spikes(randperm(length(n3Spikes)));
+n3Spikes = circshift(xor(n1Spikes,n2Spikes),[0,1]);
+n1Spikes = n1Spikes(2:end-1);
+n2Spikes = n2Spikes(2:end-1);
+n3Spikes = n3Spikes(2:end-1);
+%n3Spikes = n3Spikes(randperm(length(n3Spikes)));
 
 tmatArchetypes = {'null hypothesis', 'dormant, unconnected', ...
     'dormant, excited 1', 'dormant excited 2', 'dormant, excited jointly', ...
