@@ -24,10 +24,8 @@ em3_guess = [0.7 0.1 0.1 0.1;.1 .7 .1 .1];
 tmatBest = 0;
 logLs = -9999999;
 tr_matrices = {};
-cnt = 0;
 
-
-for i = 1:length(tmatArchetypes)
+parfor (i = 1:length(tmatArchetypes),10)
     tic
     tr1_guess = archetypeLookup3D(tmatArchetypes{i}, 2);
     tr2_guess = archetypeLookup3D(tmatArchetypes{i}, 2);
@@ -58,8 +56,7 @@ for i = 1:length(tmatArchetypes)
         B_C = max(B_C);
         C_A = max(C_A);
         C_B = max(C_B);
-        cnt = cnt +1
-        tr_matrices{cnt} = [tr1,tr2,tr3]
+        tr_matrices{i} = [tr1,tr2,tr3]
     end
     toc
 end
