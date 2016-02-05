@@ -1,8 +1,12 @@
 function [A_B, A_C, B_A, B_C, C_A, C_B] = nmhs3D(n1, n2, n3, T, tmax, binSize, coef)
     %number of spikes/neuron
-    n1Spikes = countSpikes(n1, T, tmax, binSize); n1Spikes(n1Spikes > 3) = 3;
-    n2Spikes = countSpikes(n2, T, tmax, binSize); n2Spikes(n2Spikes > 3) = 3;
-    n3Spikes = countSpikes(n3, T, tmax, binSize); n3Spikes(n3Spikes > 3) = 3;
+%     n1Spikes = countSpikes(n1, T, tmax, binSize); n1Spikes(n1Spikes > 3) = 3;
+%     n2Spikes = countSpikes(n2, T, tmax, binSize); n2Spikes(n2Spikes > 3) = 3;
+%     n3Spikes = countSpikes(n3, T, tmax, binSize); n3Spikes(n3Spikes > 3) = 3;
+    n1Spikes = round(rand(1,700));
+    n2Spikes = round(rand(1,700));
+    n3Spikes = circshift(xor(n1Spikes,n2Spikes),[1,0]);
+    %n3Spikes = n3Spikes(randperm(length(n3Spikes)));
 
     tmatArchetypes = {'null hypothesis', 'dormant, unconnected', ...
         'dormant, excited 1', 'dormant excited 2', 'dormant, excited jointly', ...
