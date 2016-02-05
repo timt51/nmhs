@@ -37,7 +37,6 @@ function [packed3DHMM, logLs] = ...
   seq2 = [1, seq2];
   seq3 = [1, seq3];  
   for iter = 1:CONVERGENCE_LIMIT
-    tic
     little_chi = zeros(num_states1, num_states2, num_states3, ...
                        num_states1, num_states2, num_states3, num_events);
 
@@ -142,7 +141,6 @@ function [packed3DHMM, logLs] = ...
       break;
     end
     old_logL = new_logL;
-    toc
   end
   packed3DHMM = pack3DHMM(tr1_trained, tr2_trained, tr3_trained, em1_trained, em2_trained, em3_trained);
 
