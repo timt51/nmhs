@@ -13,7 +13,7 @@ function [n1, n2, n3, T] = hh_main(tmax, samppersec, n1gsyn, n2gsyn, n1n2prob)
     %samppersec = 1000;
     spikedur = 5; % ms
     signalrefrac = 100; % ms
-    spikefreq = 3; % Hz
+    spikefreq = 15; % Hz
     %n1gsyn = 0.2; % mS/cm^2
 
     timeline = tmin:tmax;
