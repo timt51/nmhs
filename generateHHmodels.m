@@ -6,9 +6,9 @@ function [n1s, n2s, n3s, Ts] = generateHHmodels(tmax, samppersec, numCases, n1n2
     
     count = 0;
     for i = 1:11
-        n1gsyn = 0.1*(i-1);
+        n2gsyn = 0.1*(i-1);
         for k = 1:numCases
-            [n1, n2, n3, T] = hh_main(tmax, samppersec, n1gsyn, 0, n1n2prob);
+            [n1, n2, n3, T] = hh_main(tmax, samppersec, 0.4, n2gsyn, n1n2prob);
             count = count + 1;
             disp(count);
             n1s{count} = n1;

@@ -3,7 +3,7 @@ allA_Cs = {};
 C_Ameans = zeros(11, 1);
 A_Cmeans = zeros(11, 1);
 numGsyns = 11;
-numCases = 10;
+numCases = 1;
 
 for i = 1:numGsyns
     C_As = zeros(numCases,1);
