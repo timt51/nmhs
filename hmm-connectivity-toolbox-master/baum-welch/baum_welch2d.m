@@ -17,8 +17,6 @@ function [tr1_trained, tr2_trained, em1_trained, em2_trained, logLs] = ...
   num_emissions2 = size(em2_guess, 2);  
   num_events = length(seq1);
 
-  suppress_connection = (length(varargin) > 0 ) && varargin{1};
-
   [forward_probabilities, backward_probabilities, normalization_factors] = forward_backward2d(tr1_guess, tr2_guess, em1_guess, em2_guess, seq1, seq2);
   old_logL = sum(log(normalization_factors));
   logLs = [old_logL];
@@ -79,10 +77,6 @@ function [tr1_trained, tr2_trained, em1_trained, em2_trained, logLs] = ...
     tr2_trained = sum(exp(big_psi), 4);
     tr2_trained = permute(tr2_trained, [2, 3, 1]); %klj -> ljk
     tr2_trained = tr2_trained ./ repmat(sum(tr2_trained, 2), 1, num_states2, 1);
-
-    if(suppress_connection)
-      tr1_trained = repmat(sum(tr1_trained, 3)/num_states2, 1, 1, num_states2);
-    end
 
     big_e = zeros(num_states1, num_emissions1);
     big_h = zeros(num_states2, num_emissions2);

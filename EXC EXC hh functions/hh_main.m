@@ -1,4 +1,4 @@
-function [first second third T] = hh_main(tmax, samppersec, PLgsyn, VTAgsyn, n1n2prob)
+function [first second third T] = hh_main(tmax, samppersec, PLgsyn, VTAgsyn)
     % Hodgkin-Huxley circuit model implemented by Leif Gibb 6/28/15 through 7/5/15
 
     close all

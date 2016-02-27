@@ -3,7 +3,8 @@ allA_Cs = {};
 C_Ameans = zeros(11, 1);
 A_Cmeans = zeros(11, 1);
 numGsyns = 11;
-numCases = 1;
+numCases = 10;
+tmax = 10000;
 
 for i = 1:numGsyns
     C_As = zeros(numCases,1);
@@ -20,9 +21,11 @@ for i = 1:numGsyns
     A_Cmeans(i) = mean(A_Cs);
 end
 
-plot(linspace(0,1,11),C_Ameans,linspace(0,1,11),A_Cmeans);
+% plot(linspace(0,1,11),C_Ameans,linspace(0,1,11),A_Cmeans);
+combined = bsxfun(@max,C_Ameans,A_Cmeans);
+plot(linspace(0,1,11),combined);
 ylim([0 1]);
-legend('B listens to A', 'A listens to B');
-xlabel('gsyn');
-ylabel('Connectivity');
-title('Neuron A Excites Neuron B');
+% legend('B listens to A', 'A listens to B');
+xlabel('gsyn of B');
+ylabel('Maximum Connectivity Found With 2D Model');
+title('Neuron A and B Excites Neuron C (2D Analysis)');
